@@ -18,17 +18,22 @@ This project is dedicated to preserving this Flash game so that it's not lost to
 
 ## Recent Enhancements
 
+### Browser Compatibility & Deployment
+- **Ruffle Flash Emulator**: The game now polyfills its Flash `<embed>` with [Ruffle](https://ruffle.rs/), so it runs in modern browsers without an Adobe Flash Player installation
+- **Docker Support**: Added a `Dockerfile` and `docker-compose.yml` to run the server in a container, with a configurable bind host for reachability outside the container
+
 ### Game Progression Improvements
 - **Enhanced Skip Timer Functionality**: Fixed issues with chapter timer skipping and added a new "Force Next Mission" feature for reliable mission progression
 - **Mission Collection Robustness**: Improved the `collect_mission` command to handle edge cases and forced collections properly
 
 ### Resource Management API
-- **Expanded Control Panel**: Added new API endpoints for more granular resource management
+- **Expanded Control Panel**: Added new API endpoints for more granular resource management, including mana, oil, wood, steel, and gold
 - **Consistent API Design**: Following established patterns for resource update endpoints
 
 ### UI/UX Enhancements
 - **Visual Resource Icons**: Replaced generic colored circles with proper resource icons (gold, wood, steel, oil, cash) in the Resources Control Panel
 - **Improved User Feedback**: Enhanced messaging and response details for all API operations
+- **Simplified Control Panel**: Removed the bulk wall placement feature and related UI to streamline the resource panel
 
 ### Codebase Optimization
 - **Temporary File Cleanup**: Removed unnecessary cache files and temporary directories
@@ -42,16 +47,19 @@ This project is dedicated to preserving this Flash game so that it's not lost to
 
 ## How to Install on Windows
 
-- Download a flash-compatible browser. :flashlight: **Recommended:** [FlashBrowser](https://github.com/radubirsan/FlashBrowser/releases/latest). Alternatives can be found [here](FLASH.md).
 - Download the latest Bundle version from the [Latest Release](#latest-release) section.
 - Extract the downloaded zip file to a suitable location.
+
+:information_source: The bundled game now runs Flash through the [Ruffle](https://ruffle.rs/) emulator, so any modern browser works out of the box — a dedicated flash-compatible browser is no longer required. If you run into issues, :flashlight: [FlashBrowser](https://github.com/radubirsan/FlashBrowser/releases/latest) and other alternatives are documented [here](FLASH.md).
 
 ## How to Play
 
 - Run the *social-warriors* executable.
-- Open your flash browser and navigate to `http://127.0.0.1:5055/`.
+- Open your browser and navigate to `http://127.0.0.1:5055/`.
 
 :information_source: To play on GNU/Linux check [this page](LINUX.md).
+
+:whale: To run the server in Docker instead, use `docker compose up` from the project root (see [docker-compose.yml](docker-compose.yml)).
 
 ## Tools
 
