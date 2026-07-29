@@ -1,0 +1,12 @@
+services:
+  socialwarriors:
+    build: .
+    ports:
+      - "127.0.0.1:5055:5055"
+    volumes:
+      - .:/app
+    environment:
+      - BIND_HOST=0.0.0.0
+      - SERVERIP=127.0.0.1
+      - SERVERPORT=5055
+    restart: unless-stopped

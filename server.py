@@ -123,8 +123,9 @@ from bundle import ASSETS_DIR, STUB_DIR, TEMPLATES_DIR, BASE_DIR
 from constants import Quests
 import sessions
 
-host = '127.0.0.1'
-port = 5055
+host = os.environ.get('SERVERIP', '127.0.0.1')
+port = int(os.environ.get('SERVERPORT', 5055))
+bind_host = os.environ.get('BIND_HOST', host)
 
 app = Flask(__name__, template_folder=TEMPLATES_DIR)
 
@@ -803,4 +804,4 @@ print (" [+] Running server...")
 
 if __name__ == '__main__':
     app.secret_key = 'SECRET_KEY'
-    app.run(host=host, port=port, debug=False)
+    app.run(host=bind_host, port=port, debug=False)
